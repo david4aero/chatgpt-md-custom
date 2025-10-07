@@ -36,7 +36,7 @@ export class AiModelSuggestModal extends SuggestModal<string> {
     try {
       await this.editorService.setModel(this.editor, modelName);
     } catch (error) {
-      console.error("[ChatGPT MD] Error setting model in frontmatter:", error);
+      console.error("[ChatMDCustom] Error setting model in frontmatter:", error);
       new Notice(`Error setting model: ${error.message}`);
     }
   }

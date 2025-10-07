@@ -1,10 +1,10 @@
 {
-  "id": "chatgpt-md",
-  "name": "ChatGPT MD",
+  "id": "chatmd-custom",
+  "name": "ChatMDCustom",
   "version": "2.8.0",
   "minAppVersion": "0.15.0",
-  "description": "A seamless integration of ChatGPT, OpenRouter.ai and local LLMs via Ollama into Obsidian.",
-  "author": "Deniz Okcu (created by Bram Adams)",
+  "description": "A custom version of ChatGPT MD - seamless integration of ChatGPT, OpenRouter.ai and local LLMs via Ollama into Obsidian.",
+  "author": "Custom fork (originally by Deniz Okcu & Bram Adams)",
   "authorUrl": "https://www.bramadams.dev",
   "fundingUrl": "https://www.bramadams.dev/#/portal/",
   "isDesktopOnly": false

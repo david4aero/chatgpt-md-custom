@@ -43,7 +43,7 @@ export class ApiService {
     serviceType: string
   ): Promise<Response> {
     try {
-      console.log(`[ChatGPT MD] Making streaming request to ${serviceType}`, payload);
+      console.log(`[ChatMDCustom] Making streaming request to ${serviceType}`, payload);
 
       this.abortController = new AbortController();
 
@@ -83,7 +83,7 @@ export class ApiService {
     serviceType: string
   ): Promise<any> {
     try {
-      console.log(`[ChatGPT MD] Making non-streaming request to ${serviceType}`, payload);
+      console.log(`[ChatMDCustom] Making non-streaming request to ${serviceType}`, payload);
 
       const responseUrl = await requestUrl({
         url,
@@ -123,7 +123,7 @@ export class ApiService {
    */
   async makeGetRequest(url: string, headers: Record<string, string>, serviceType: string): Promise<any> {
     try {
-      console.log(`[ChatGPT MD] Making GET request to ${serviceType}`);
+      console.log(`[ChatMDCustom] Making GET request to ${serviceType}`);
 
       const responseObj = await requestUrl({
         url,

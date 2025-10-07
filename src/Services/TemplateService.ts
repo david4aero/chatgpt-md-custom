@@ -21,12 +21,12 @@ export class TemplateService {
   async createNewChatFromTemplate(settings: ChatGPT_MDSettings, fileName: string): Promise<void> {
     try {
       if (!settings.chatFolder || settings.chatFolder.trim() === "") {
-        new Notice(`[ChatGPT MD] No chat folder value found. Please set one in settings.`);
+        new Notice(`[ChatMDCustom] No chat folder value found. Please set one in settings.`);
         return;
       }
 
       if (!settings.chatTemplateFolder || settings.chatTemplateFolder.trim() === "") {
-        new Notice(`[ChatGPT MD] No chat template folder value found. Please set one in settings.`);
+        new Notice(`[ChatMDCustom] No chat template folder value found. Please set one in settings.`);
         return;
       }
 
@@ -45,8 +45,8 @@ export class TemplateService {
 
       new ChatTemplatesSuggestModal(this.app, settings, fileName).open();
     } catch (err) {
-      console.error(`[ChatGPT MD] Error in Create new chat from template`, err);
-      new Notice(`[ChatGPT MD] Error in Create new chat from template, check console`);
+      console.error(`[ChatMDCustom] Error in Create new chat from template`, err);
+      new Notice(`[ChatMDCustom] Error in Create new chat from template, check console`);
     }
   }
 
@@ -58,7 +58,7 @@ export class TemplateService {
       const selectedText = editor.getSelection();
 
       if (!settings.chatFolder || settings.chatFolder.trim() === "") {
-        new Notice(`[ChatGPT MD] No chat folder value found. Please set one in settings.`);
+        new Notice(`[ChatMDCustom] No chat folder value found. Please set one in settings.`);
         return;
       }
 
@@ -94,8 +94,8 @@ export class TemplateService {
       activeView.editor.focus();
       this.editorContentService.moveCursorToEnd(activeView.editor);
     } catch (err) {
-      console.error(`[ChatGPT MD] Error in Create new chat with highlighted text`, err);
-      new Notice(`[ChatGPT MD] Error in Create new chat with highlighted text, check console`);
+      console.error(`[ChatMDCustom] Error in Create new chat with highlighted text`, err);
+      new Notice(`[ChatMDCustom] Error in Create new chat with highlighted text, check console`);
     }
   }
 }

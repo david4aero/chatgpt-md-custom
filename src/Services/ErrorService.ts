@@ -46,7 +46,7 @@ export class ErrorService {
       returnForChat: false,
     }
   ): string {
-    const prefix = `[ChatGPT MD] ${serviceName}`;
+    const prefix = `[ChatMDCustom] ${serviceName}`;
     let errorMessage = "";
 
     // Extract context information if available
@@ -114,7 +114,7 @@ Model- ${model}, URL- ${url}`;
    * Handle URL configuration errors
    */
   handleUrlError(url: string, defaultUrl: string, serviceName: string): string {
-    const errorMessage = `[ChatGPT MD] Error calling specified URL: ${url}`;
+    const errorMessage = `[ChatMDCustom] Error calling specified URL: ${url}`;
 
     this.notificationService.showNotification(errorMessage);
     console.error(errorMessage, { url, defaultUrl, serviceName });
@@ -131,7 +131,7 @@ Model- ${serviceName === AI_SERVICE_OLLAMA ? "llama2" : "unknown"}, URL- ${url}`
    * Handle model configuration errors
    */
   handleModelError(model: string, serviceName: string): string {
-    const errorMessage = `[ChatGPT MD] Error calling model: ${model}`;
+    const errorMessage = `[ChatMDCustom] Error calling model: ${model}`;
 
     this.notificationService.showNotification(errorMessage);
     console.error(errorMessage, { model, serviceName });
@@ -143,7 +143,7 @@ Model- ${serviceName === AI_SERVICE_OLLAMA ? "llama2" : "unknown"}, URL- ${url}`
    * Handle validation errors
    */
   handleValidationError(message: string, context?: Record<string, any>): never {
-    const errorMessage = `[ChatGPT MD] Validation Error: ${message}`;
+    const errorMessage = `[ChatMDCustom] Validation Error: ${message}`;
 
     this.notificationService.showNotification(errorMessage);
     console.error(errorMessage, context);

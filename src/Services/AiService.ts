@@ -210,7 +210,7 @@ export abstract class BaseAiService implements IAiApiService {
         return "";
       }
     } catch (error) {
-      console.error("[ChatGPT MD] Error in inferTitle:", error);
+      console.error("[ChatMDCustom] Error in inferTitle:", error);
       this.showNoTitleInferredNotification();
       return "";
     }
@@ -276,17 +276,17 @@ export abstract class BaseAiService implements IAiApiService {
 
       // If model is not set in settings, use the default model
       if (!config.model) {
-        console.log("[ChatGPT MD] Model not set for title inference, using default model");
+        console.log("[ChatMDCustom] Model not set for title inference, using default model");
         config.model = defaultConfig.model;
       }
 
       // Ensure we have a URL
       if (!config.url) {
-        console.log("[ChatGPT MD] URL not set for title inference, using default URL");
+        console.log("[ChatMDCustom] URL not set for title inference, using default URL");
         config.url = defaultConfig.url;
       }
 
-      console.log("[ChatGPT MD] Inferring title with model:", config.model);
+      console.log("[ChatMDCustom] Inferring title with model:", config.model);
 
       try {
         // Use a separate try/catch block for the API call to handle errors without returning them to the chat
@@ -299,11 +299,11 @@ export abstract class BaseAiService implements IAiApiService {
         );
       } catch (apiError) {
         // Log the error but don't return it to the chat
-        console.error(`[ChatGPT MD] Error calling API for title inference:`, apiError);
+        console.error(`[ChatMDCustom] Error calling API for title inference:`, apiError);
         return "";
       }
     } catch (err) {
-      console.error(`[ChatGPT MD] Error inferring title:`, err);
+      console.error(`[ChatMDCustom] Error inferring title:`, err);
       this.showNoTitleInferredNotification();
       return "";
     }
@@ -446,7 +446,7 @@ export abstract class BaseAiService implements IAiApiService {
     config: Record<string, any>,
     isTitleInference: boolean | string | undefined = false
   ): any {
-    console.error(`[ChatGPT MD] ${this.serviceType} API error:`, err);
+    console.error(`[ChatMDCustom] ${this.serviceType} API error:`, err);
 
     // Convert string or any other truthy value to boolean
     const shouldThrow = Boolean(isTitleInference);
@@ -521,7 +521,7 @@ export abstract class BaseAiService implements IAiApiService {
     settings?: ChatGPT_MDSettings
   ): Promise<any> {
     try {
-      console.log(`[ChatGPT MD] "no stream"`, config);
+      console.log(`[ChatMDCustom] "no stream"`, config);
 
       config.stream = false;
       const { payload, headers } = this.prepareApiCall(apiKey, messages, config, settings!);

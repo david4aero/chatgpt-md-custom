@@ -2,9 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Current Version: 2.7.0
-- Major focus: Provider-specific default models and enhanced configuration system
-- Key feature: Each AI service now has dedicated default settings in the plugin configuration
+## Current Version: 2.8.0
+- **GPT-5 Model Support**: Full support for OpenAI's newest GPT-5 family (gpt-5, gpt-5-mini, gpt-5-nano, gpt-5-chat-latest)
+- **Smart Token Management**: Enhanced handling of token limit responses for more reliable interactions
+- **Performance Optimizations**: Refined message service architecture and improved API integration
 
 ## Development Commands
 

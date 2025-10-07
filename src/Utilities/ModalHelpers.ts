@@ -9,10 +9,10 @@ export const createFolderModal = async (app: App, folderName: string, folderPath
   const result = await folderCreationModal.waitForModalValue();
 
   if (result) {
-    console.log("[ChatGPT MD] Creating folder");
+    console.log("[ChatMDCustom] Creating folder");
     await app.vault.createFolder(folderPath);
   } else {
-    console.log("[ChatGPT MD] Not creating folder");
+    console.log("[ChatMDCustom] Not creating folder");
   }
 
   return result;

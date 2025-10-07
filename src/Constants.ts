@@ -63,7 +63,7 @@ export const ROLE_USER = "user";
 export const FETCH_MODELS_TIMEOUT_MS = 6000;
 
 // Plugin-specific system message to help LLM understand the context
-export const PLUGIN_SYSTEM_MESSAGE = `You are an AI assistant integrated into Obsidian through the ChatGPT MD plugin. You are helping a user who is working within their Obsidian vault - a personal knowledge management system where they store notes, thoughts, and information in Markdown format.
+export const PLUGIN_SYSTEM_MESSAGE = `You are an AI assistant integrated into Obsidian through the ChatMDCustom plugin. You are helping a user who is working within their Obsidian vault - a personal knowledge management system where they store notes, thoughts, and information in Markdown format.
 
 Key context:
 - The user is writing in Markdown format within Obsidian
@@ -96,7 +96,7 @@ Respond naturally and helpfully while being mindful of this Obsidian/note-taking
 
 // Truncation error messages
 export const TRUNCATION_ERROR_FULL =
-  "⚠️ **Response was truncated due to token limit.** Please increase the `max_tokens` setting in ChatGPT MD plugin settings to get the complete response.";
+  "⚠️ **Response was truncated due to token limit.** Please increase the `max_tokens` setting in ChatMDCustom plugin settings to get the complete response.";
 export const TRUNCATION_ERROR_PARTIAL =
   "⚠️ *Note: Some alternative responses were truncated due to token limit. Consider increasing `max_tokens` in settings for fuller responses.*";
 export const TRUNCATION_ERROR_INDICATOR = "Response was truncated due to token limit";

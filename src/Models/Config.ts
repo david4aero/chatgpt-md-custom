@@ -60,7 +60,7 @@ export interface ChatBehaviorSettings {
   generateAtCursor: boolean;
   /** Whether to automatically infer title after 4 messages have been exchanged */
   autoInferTitle: boolean;
-  /** System message that provides context about the Obsidian/ChatGPT MD plugin environment */
+  /** System message that provides context about the Obsidian/ChatMDCustom plugin environment */
   pluginSystemMessage: string;
 }
 

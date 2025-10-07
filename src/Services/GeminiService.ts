@@ -231,7 +231,7 @@ export class GeminiService extends BaseAiService implements IAiApiService {
     settings?: ChatGPT_MDSettings
   ): Promise<any> {
     try {
-      console.log(`[ChatGPT MD] "no stream"`, config);
+      console.log(`[ChatMDCustom] "no stream"`, config);
 
       config.stream = false;
       const { payload, headers } = this.prepareApiCall(apiKey, messages, config, settings!);

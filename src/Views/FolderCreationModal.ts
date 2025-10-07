@@ -22,7 +22,7 @@ export class FolderCreationModal extends Modal {
     const { contentEl } = this;
 
     contentEl.createEl("h2", {
-      text: `[ChatGPT MD] No ${this.folderName} folder found.`,
+      text: `[ChatMDCustom] No ${this.folderName} folder found.`,
     });
 
     contentEl.createEl("p", {

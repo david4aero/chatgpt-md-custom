@@ -87,7 +87,7 @@ export class FrontmatterService {
     // Get the active file
     const activeView = this.app.workspace.getActiveViewOfType(MarkdownView);
     if (!activeView || !activeView.file) {
-      console.error("[ChatGPT MD] No active file found for frontmatter update");
+      console.error("[ChatMDCustom] No active file found for frontmatter update");
       return;
     }
 
@@ -97,7 +97,7 @@ export class FrontmatterService {
       // Use FrontmatterManager to update the field
       await this.frontmatterManager.updateFrontmatterField(file, key, value);
     } catch (error) {
-      console.error("[ChatGPT MD] Error updating frontmatter:", error);
+      console.error("[ChatMDCustom] Error updating frontmatter:", error);
       throw error;
     }
   }

@@ -85,7 +85,7 @@ export class ChatGPT_MDSettingsTab extends PluginSettingTab {
         id: "pluginSystemMessage",
         name: "Plugin System Message",
         description:
-          "System message that provides context about the Obsidian/ChatGPT MD plugin environment. This helps the AI understand it's working within Obsidian and format responses appropriately.",
+          "System message that provides context about the Obsidian/ChatMDCustom plugin environment. This helps the AI understand it's working within Obsidian and format responses appropriately.",
         type: "textarea",
         group: "Chat Behavior",
       },

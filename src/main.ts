@@ -25,7 +25,7 @@ export default class ChatGPT_MD extends Plugin {
     // Initialize available models after registry is created, but don't block startup
     // Run model initialization in the background
     this.commandRegistry.initializeAvailableModels().catch((error) => {
-      console.error("[ChatGPT MD] Error initializing models in background:", error);
+      console.error("[ChatMDCustom] Error initializing models in background:", error);
     });
   }
 }

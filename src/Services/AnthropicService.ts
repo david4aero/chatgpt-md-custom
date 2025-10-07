@@ -242,7 +242,7 @@ export class AnthropicService extends BaseAiService implements IAiApiService {
 
       // Combine all system messages
       payload.system = systemParts.join("\n\n");
-      console.log(`[ChatGPT MD] Combined plugin system message with user system commands for Anthropic`);
+      console.log(`[ChatMDCustom] Combined plugin system message with user system commands for Anthropic`);
     } else if (anthropicConfig.system_commands && anthropicConfig.system_commands.length > 0) {
       // If plugin system message is skipped (like for title inference), only use user system commands
       payload.system = anthropicConfig.system_commands.join("\n\n");

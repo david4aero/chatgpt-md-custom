@@ -91,7 +91,7 @@ export class ApiAuthService {
       case AI_SERVICE_OPENROUTER:
         headers["Authorization"] = `Bearer ${apiKey}`;
         headers["HTTP-Referer"] = "https://github.com/bramses/chatgpt-md";
-        headers["X-Title"] = "Obsidian ChatGPT MD Plugin";
+        headers["X-Title"] = "Obsidian ChatMDCustom Plugin";
         break;
       case AI_SERVICE_ANTHROPIC:
         headers["x-api-key"] = apiKey;

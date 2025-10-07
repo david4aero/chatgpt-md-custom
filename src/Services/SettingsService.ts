@@ -63,7 +63,7 @@ export class SettingsService {
     // Save settings if any changes were made
     if (needsUpdate) {
       await this.saveSettings();
-      console.log("[ChatGPT MD] Settings migration completed");
+      console.log("[ChatMDCustom] Settings migration completed");
     }
   }
 
@@ -106,7 +106,7 @@ export class SettingsService {
           [settingKey]: currentValue.replace(migration.pattern, migration.replacement),
         } as Partial<ChatGPT_MDSettings>);
 
-        console.log(`[ChatGPT MD] Migration (${migration.introducedIn}): ${migration.description}`);
+        console.log(`[ChatMDCustom] Migration (${migration.introducedIn}): ${migration.description}`);
         needsUpdate = true;
       }
     }
@@ -123,11 +123,11 @@ export class SettingsService {
       this.settings.hasOwnProperty("openaiDefaultModel") || this.settings.hasOwnProperty("anthropicDefaultModel");
 
     if (hasNewStructure) {
-      console.log("[ChatGPT MD] New frontmatter structure already present, skipping migration");
+      console.log("[ChatMDCustom] New frontmatter structure already present, skipping migration");
       return false;
     }
 
-    console.log("[ChatGPT MD] Migrating to new frontmatter settings structure (v2.7.0)");
+    console.log("[ChatMDCustom] Migrating to new frontmatter settings structure (v2.7.0)");
 
     // Migrate provider-specific settings from their config defaults
     // Use the actual service config values as the single source of truth
@@ -175,7 +175,7 @@ export class SettingsService {
       ...newProviderSettings,
     } as Partial<ChatGPT_MDSettings>);
 
-    console.log("[ChatGPT MD] Migrated frontmatter settings to new structure");
+    console.log("[ChatMDCustom] Migrated frontmatter settings to new structure");
     return true;
   }
 

@@ -16,8 +16,18 @@ export class FileService {
       throw new Error("No file is currently open");
     }
 
+    // Add today's date prefix in YYYY.MM.DD format
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    const datePrefix = `${year}.${month}.${day} - `;
+
+    // Prepend date to title
+    const titleWithDate = datePrefix + title;
+
     // Sanitize the title to remove invalid characters
-    const sanitizedTitle = this.sanitizeFileName(title);
+    const sanitizedTitle = this.sanitizeFileName(titleWithDate);
 
     const currentFolder = file.parent?.path ?? "/";
     let newFileName = `${currentFolder}/${sanitizedTitle}.md`;
@@ -29,8 +39,8 @@ export class FileService {
     try {
       await this.app.fileManager.renameFile(file, newFileName);
     } catch (err) {
-      new Notice("[ChatGPT MD] Error writing inferred title to editor");
-      console.log("[ChatGPT MD] Error writing inferred title to editor", err);
+      new Notice("[ChatMDCustom] Error writing inferred title to editor");
+      console.log("[ChatMDCustom] Error writing inferred title to editor", err);
       throw err;
     }
   }
@@ -56,7 +66,7 @@ export class FileService {
       const result = await createFolderModal(this.app, folderType, folderPath);
       if (!result) {
         new Notice(
-          `[ChatGPT MD] No ${folderType} found. One must be created to use the plugin. Set one in settings and make sure it exists.`
+          `[ChatMDCustom] No ${folderType} found. One must be created to use the plugin. Set one in settings and make sure it exists.`
         );
         return false;
       }

@@ -97,7 +97,7 @@ export class CommandRegistry {
           }
 
           if (Platform.isMobile) {
-            new Notice(`[ChatGPT MD] Calling ${frontmatter.model}`);
+            new Notice(`[ChatMDCustom] Calling ${frontmatter.model}`);
           } else {
             this.updateStatusBar(`Calling ${frontmatter.model}`);
           }
@@ -134,7 +134,7 @@ export class CommandRegistry {
 
             // Ensure model is set for title inference
             if (!settingsWithApiKey.model) {
-              console.log("[ChatGPT MD] Model not set for auto title inference");
+              console.log("[ChatMDCustom] Model not set for auto title inference");
               if (frontmatter.aiService === AI_SERVICE_OPENAI) {
                 settingsWithApiKey.model = DEFAULT_OPENAI_CONFIG.model;
               } else if (frontmatter.aiService === AI_SERVICE_OPENROUTER) {
@@ -145,7 +145,7 @@ export class CommandRegistry {
                 settingsWithApiKey.model = DEFAULT_GEMINI_CONFIG.model;
               } else if (frontmatter.aiService === AI_SERVICE_OLLAMA || frontmatter.aiService === AI_SERVICE_LMSTUDIO) {
                 console.log(
-                  `[ChatGPT MD] No model configured for ${frontmatter.aiService}. Skipping auto title inference. Please configure a model in settings.`
+                  `[ChatMDCustom] No model configured for ${frontmatter.aiService}. Skipping auto title inference. Please configure a model in settings.`
                 );
                 new Notice(
                   `Auto title inference skipped: No model configured for ${frontmatter.aiService}. Please set a model in settings.`,
@@ -155,7 +155,7 @@ export class CommandRegistry {
               }
             }
 
-            console.log("[ChatGPT MD] Auto-inferring title with settings:", {
+            console.log("[ChatMDCustom] Auto-inferring title with settings:", {
               aiService: frontmatter.aiService,
               model: settingsWithApiKey.model,
             });
@@ -164,7 +164,7 @@ export class CommandRegistry {
           }
         } catch (err) {
           if (Platform.isMobile) {
-            new Notice(`[ChatGPT MD] Calling ${frontmatter.model}. ` + err, 9000);
+            new Notice(`[ChatMDCustom] Calling ${frontmatter.model}. ` + err, 9000);
           }
           console.log(err);
         }
@@ -225,7 +225,7 @@ export class CommandRegistry {
               ![...freshModelsSet].every((model) => currentModelsSet.has(model));
 
             if (areDifferent && freshModels.length > 0) {
-              console.log("[ChatGPT MD] Models updated. Refreshing modal.");
+              console.log("[ChatMDCustom] Models updated. Refreshing modal.");
               this.availableModels = freshModels; // Update the stored models
 
               // Close the initial modal and open a new one with fresh data
@@ -235,7 +235,7 @@ export class CommandRegistry {
           } catch (e) {
             // Don't close the initial modal here, as it might still be useful
             // Just log the error for background fetching failure
-            console.error("[ChatGPT MD] Error fetching fresh models in background:", e);
+            console.error("[ChatMDCustom] Error fetching fresh models in background:", e);
             // Optionally notify the user, but avoid being too intrusive
             // new Notice("Could not refresh model list in background.");
           }
@@ -326,7 +326,7 @@ export class CommandRegistry {
 
         // Ensure model is set
         if (!frontmatter.model) {
-          console.log("[ChatGPT MD] Model not set in frontmatter, using default model");
+          console.log("[ChatMDCustom] Model not set in frontmatter, using default model");
           return;
         }
 
@@ -363,8 +363,8 @@ export class CommandRegistry {
         try {
           await editorService.createNewChatWithHighlightedText(editor, settings);
         } catch (err) {
-          console.error(`[ChatGPT MD] Error in Create new chat with highlighted text`, err);
-          new Notice(`[ChatGPT MD] Error in Create new chat with highlighted text, check console`);
+          console.error(`[ChatMDCustom] Error in Create new chat with highlighted text`, err);
+          new Notice(`[ChatMDCustom] Error in Create new chat with highlighted text, check console`);
         }
       },
     });
@@ -390,7 +390,7 @@ export class CommandRegistry {
           return;
         }
         new Notice(
-          "date format cannot be empty in your ChatGPT MD settings. You can choose something like YYYYMMDDhhmmss"
+          "date format cannot be empty in your ChatMDCustom settings. You can choose something like YYYYMMDDhhmmss"
         );
       },
     });
@@ -426,7 +426,7 @@ export class CommandRegistry {
    * Initialize available models on plugin startup.
    */
   public async initializeAvailableModels(): Promise<void> {
-    console.log("[ChatGPT MD] Initializing available models...");
+    console.log("[ChatMDCustom] Initializing available models...");
     try {
       const settings = this.settingsService.getSettings();
       const openAiKey = this.apiAuthService.getApiKey(settings, AI_SERVICE_OPENAI);
@@ -442,9 +442,9 @@ export class CommandRegistry {
       };
 
       this.availableModels = await this.fetchAvailableModels(defaultUrls, openAiKey, openRouterKey);
-      console.log(`[ChatGPT MD] Found ${this.availableModels.length} available models.`);
+      console.log(`[ChatMDCustom] Found ${this.availableModels.length} available models.`);
     } catch (error) {
-      console.error("[ChatGPT MD] Error initializing available models:", error);
+      console.error("[ChatMDCustom] Error initializing available models:", error);
       // Optionally show a notice, but avoid blocking startup
       // new Notice("Could not pre-fetch AI models. They will be fetched on demand.");
       this.availableModels = []; // Ensure it's an empty array on error
@@ -525,6 +525,6 @@ export class CommandRegistry {
    * Update the status bar with the given text
    */
   private updateStatusBar(text: string) {
-    this.statusBarItemEl.setText(`[ChatGPT MD] ${text}`);
+    this.statusBarItemEl.setText(`[ChatMDCustom] ${text}`);
   }
 }
